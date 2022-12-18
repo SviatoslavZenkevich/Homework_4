@@ -2,10 +2,10 @@ package com.example.homework_4.ui.main
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import com.example.homework_4.MainActivity
 import com.example.homework_4.R
 
 class MainFragment : Fragment() {
@@ -19,7 +19,8 @@ class MainFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+        (activity as AppCompatActivity).supportActionBar?.title = "Add contact"
+
     }
 
     override fun onCreateView(
@@ -29,4 +30,7 @@ class MainFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_main, container, false)
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+    }
 }
